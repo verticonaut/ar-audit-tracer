@@ -1,0 +1,182 @@
+# Logfile created on 2010-09-08 11:13:02 +0200 by logger.rb/25413
+D, [2010-09-08T11:15:24.087229 #9196] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T11:17:58.851802 #9223] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T11:17:58.852168 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:17:58.852651 #9223] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "with_string_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" varchar(255), "updated_by" varchar(255)) [0m
+D, [2010-09-08T11:17:58.853273 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:17:58.853576 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "with_integer_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "updated_by" integer) [0m
+D, [2010-09-08T11:17:58.853791 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:17:58.854053 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-08T11:17:58.854181 #9223] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-08T11:17:58.854389 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-08T11:17:58.854547 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:17:58.854774 #9223] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2010-09-08T11:17:58.854937 #9223] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+D, [2010-09-08T11:17:58.888083 #9223] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-08T11:17:58.990465 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')
+D, [2010-09-08T11:17:58.995600 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_integer_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)[0m
+D, [2010-09-08T11:17:58.996681 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T11:17:58.997560 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 2 WHERE ("with_string_authors"."id" = 2)[0m
+D, [2010-09-08T11:17:58.998397 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T11:17:58.999570 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T11:17:59.000313 #9223] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 'updater' WHERE ("with_string_authors"."id" = 4)
+D, [2010-09-08T11:17:59.001175 #9223] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T11:21:41.260528 #9257] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T11:21:41.261003 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:21:41.261653 #9257] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "with_string_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" varchar(255), "updated_by" varchar(255)) [0m
+D, [2010-09-08T11:21:41.263112 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:21:41.263440 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "with_integer_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "updated_by" integer) [0m
+D, [2010-09-08T11:21:41.263688 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:21:41.263966 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-08T11:21:41.264102 #9257] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-08T11:21:41.264315 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-08T11:21:41.264474 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T11:21:41.264708 #9257] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2010-09-08T11:21:41.264856 #9257] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+D, [2010-09-08T11:21:41.273318 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-08T11:21:41.330399 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')
+D, [2010-09-08T11:21:41.335294 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_integer_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)[0m
+D, [2010-09-08T11:21:41.336335 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T11:21:41.337263 #9257] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 2 WHERE ("with_string_authors"."id" = 2)[0m
+D, [2010-09-08T11:21:41.338115 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T11:21:41.339254 #9257] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T11:21:41.339969 #9257] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 'updater' WHERE ("with_string_authors"."id" = 4)
+D, [2010-09-08T11:21:41.340783 #9257] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:11:41.549503 #9434] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T12:11:41.550105 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:11:41.550786 #9434] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "with_string_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" varchar(255), "updated_by" varchar(255)) [0m
+D, [2010-09-08T12:11:41.553623 #9434] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:11:41.554073 #9434] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "with_integer_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "updated_by" integer) [0m
+D, [2010-09-08T12:11:41.555067 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:11:41.555452 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-08T12:11:41.555617 #9434] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-08T12:11:41.556204 #9434] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-08T12:11:41.556393 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:11:41.558515 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2010-09-08T12:11:41.558790 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+D, [2010-09-08T12:11:41.573368 #9434] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-08T12:11:41.675139 #9434] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')
+D, [2010-09-08T12:11:41.681684 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_integer_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)[0m
+D, [2010-09-08T12:11:41.684270 #9434] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:11:41.686023 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 2 WHERE ("with_string_authors"."id" = 2)[0m
+D, [2010-09-08T12:11:41.687928 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:11:41.690491 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:11:41.692023 #9434] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 'updater' WHERE ("with_string_authors"."id" = 4)
+D, [2010-09-08T12:11:41.693689 #9434] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:16:14.761958 #9522] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T12:16:14.762355 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:16:14.762909 #9522] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "with_string_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" varchar(255), "updated_by" varchar(255)) [0m
+D, [2010-09-08T12:16:14.763572 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:16:14.763901 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "with_integer_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "updated_by" integer) [0m
+D, [2010-09-08T12:16:14.764118 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:16:14.764394 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-08T12:16:14.764523 #9522] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-08T12:16:14.764772 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-08T12:16:14.764932 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:16:14.765173 #9522] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2010-09-08T12:16:14.765320 #9522] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+D, [2010-09-08T12:16:14.774704 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-08T12:16:14.838089 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')
+D, [2010-09-08T12:16:14.843352 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_integer_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)[0m
+D, [2010-09-08T12:16:14.844605 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:16:14.845489 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 2 WHERE ("with_string_authors"."id" = 2)[0m
+D, [2010-09-08T12:16:14.864167 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:16:14.865467 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:16:14.866253 #9522] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 'updater' WHERE ("with_string_authors"."id" = 4)
+D, [2010-09-08T12:16:14.867099 #9522] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:17:03.902507 #9538] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-09-08T12:17:03.902991 #9538] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:17:03.903668 #9538] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "with_string_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" varchar(255), "updated_by" varchar(255)) [0m
+D, [2010-09-08T12:17:03.905797 #9538] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:17:03.906302 #9538] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "with_integer_authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_by" integer, "updated_by" integer) [0m
+D, [2010-09-08T12:17:03.907541 #9538] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:17:03.907940 #9538] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-08T12:17:03.908104 #9538] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-08T12:17:03.908352 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-08T12:17:03.908598 #9538] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-08T12:17:03.909828 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2010-09-08T12:17:03.910067 #9538] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
+D, [2010-09-08T12:17:03.925238 #9538] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-08T12:17:04.007070 #9538] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')
+D, [2010-09-08T12:17:04.014238 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_integer_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)[0m
+D, [2010-09-08T12:17:04.017169 #9538] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:17:04.018505 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 2 WHERE ("with_string_authors"."id" = 2)[0m
+D, [2010-09-08T12:17:04.020288 #9538] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES (1, NULL, 1)
+D, [2010-09-08T12:17:04.022628 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
+D, [2010-09-08T12:17:04.023872 #9538] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "with_string_authors" SET "name" = 'some_name', "updated_by" = 'updater' WHERE ("with_string_authors"."id" = 4)
+D, [2010-09-08T12:17:04.025645 #9538] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "with_string_authors" ("created_by", "name", "updated_by") VALUES ('creator', NULL, 'creator')[0m
