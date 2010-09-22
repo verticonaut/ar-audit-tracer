@@ -1,6 +1,24 @@
 = ar-audit-tracer
 
-Description goes here.
+== Summary
+
+'ar-audit-tracer' patches ActiveRecord so modifiers can be traked on saving(insert/update) a model same.
+You can track 'modifiers' the same ways you can track modification timestamps by adding columns 'created_by' and 'updated_by'.
+
+== Usage
+
+=== Migration
+In migrations add
+    t.authors
+This will add columns 'created_by' and 'updated_by' of type :string to a table
+
+IF you want to use another type simply pass the type as argument, e.g.
+    t.authors(:integer)
+
+=== Usage
+
+
+  
 
 == Note on Patches/Pull Requests
  
