@@ -5,7 +5,7 @@ require 'ar-audit-tracer/version'
 
 Gem::Specification.new do |s|
   s.name        = %q{ar-audit-tracer}
-  s.version     = "0.2.0"
+  s.version     = ArAuditTracer::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Martin Schweizer"]
   s.email       = %q{martin@verticonaut.me}
