@@ -13,9 +13,12 @@ Gem::Specification.new do |s|
   s.summary     = %q{Track creator/modifiers of you AR Models similar to timestamps.}
   s.description = %q{Handles ActiveRecord authors in the same way as timstamps.}
 
-  s.add_development_dependency "activerecord"
-  s.add_development_dependency "sqlite3"
+  s.add_dependency              "activerecord", "~> 3.0.3"
 
+  s.add_development_dependency  "activerecord"
+  s.add_development_dependency  "sqlite3"
+
+  s.rdoc_options  << '--charset' << 'UTF-8' << '--line-numbers'
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
