@@ -19,6 +19,7 @@ rdoc
 pkg
 
 ## PROJECT::SPECIFIC
-/tmp/**/*
+tmp
 
-/.idea/**/*
+### Rubymine stuff
+.idea
