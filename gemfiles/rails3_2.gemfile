@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-gemspec
-
 gem 'activerecord', '~> 3.2.0'
 
 group :test do
