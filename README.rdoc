@@ -1,5 +1,6 @@
 = ar-audit-tracer
 
+{<img src="https://secure.travis-ci.org/verticonaut/ar-audit-tracer.png" />}[http://travis-ci.org/verticonaut/ar-audit-tracer]
 
 == Summary
 
