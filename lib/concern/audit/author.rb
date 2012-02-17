@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Concern
   module Audit
     module Author

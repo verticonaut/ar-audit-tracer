@@ -1,8 +1,117 @@
+# encoding: utf-8
 require 'concern/audit/author'
 
-# ActiveRecordAuthors
 module ActiveRecord
+
+  # = Active Record Author
+  #
+  # Active Record automatically authors create and update operations if the
+  # table has fields named <tt>created_by</tt> or
+  # <tt>updated_by</tt>.
+  #
+  # Authoring can be turned off by setting:
+  #
+  #   <tt>ActiveRecord::Base.record_authors = false</tt>
+  module Author
+    extend ActiveSupport::Concern
+
+    included do
+      class_attribute :record_authors
+      self.record_authors = true
+    end
+
+    def initialize_dup(other)
+      clear_author_attributes
+    end
+
+  private
+
+    def create #:nodoc:
+      if self.record_authors
+        current_author = Concern::Audit::Author.current
+
+        all_author_attributes.each do |column|
+          if respond_to?(column) && self.send(column).nil?
+            write_attribute(column.to_s, current_author)
+          end
+        end
+      end
+
+      super
+    end
+
+    def update(*args) #:nodoc:
+      if should_record_authors?
+        current_author = Concern::Audit::Author.current
+
+        author_attributes_for_update_in_model.each do |column|
+          column = column.to_s
+          next if attribute_changed?(column)
+          write_attribute(column, current_author)
+        end
+      end
+      super
+    end
+
+    def should_record_authors?
+      self.record_authors && (!partial_updates? || changed? || (attributes.keys & self.class.serialized_attributes.keys).present?)
+    end
+
+    def author_attributes_for_update_in_model
+      author_attributes_for_update.select { |c| respond_to?(c) }
+    end
+
+    def author_attributes_for_create_in_model
+      author_attributes_for_create.select { |c| respond_to?(c) }
+    end
+
+    def all_author_attributes
+      author_attributes_for_create + author_attributes_for_update
+    end
+
+    def author_attributes_for_update #:nodoc:
+      [:updated_by]
+    end
+
+    def author_attributes_for_create #:nodoc:
+      [:created_by]
+    end
+
+    def all_author_attributes_in_model
+      author_attributes_for_create_in_model + author_attributes_for_update_in_model
+    end
+
+    # Clear attributes and changed_attributes
+    def clear_author_attributes
+      all_author_attributes_in_model.each do |attribute_name|
+        self[attribute_name] = nil
+        changed_attributes.delete(attribute_name)
+      end
+    end
+
+  end
+
+
+
   module ConnectionAdapters
+    module SchemaStatements
+      # Adds author columns (created_by and updated_by) to the named table.
+      # ===== Examples
+      #  add_authors(:suppliers)
+      def add_authors(table_name, type=:string)
+        add_column table_name, :created_by, type, :null => false
+        add_column table_name, :updated_by, type, :null => false
+      end
+
+      # Removes the author columns (created_by and updated_by) from the table definition.
+      # ===== Examples
+      #  remove_authors(:suppliers)
+      def remove_authors(table_name)
+        remove_column table_name, :updated_by
+        remove_column table_name, :created_by
+      end
+    end
+
 
     class TableDefinition
 
@@ -15,7 +124,6 @@ module ActiveRecord
         column(:created_by, type, options)
         column(:updated_by, type, options)
       end
-
 
     end
 
@@ -39,95 +147,13 @@ module ActiveRecord
 
     end
 
-    module SchemaStatements
-      # Adds author columns (created_by and updated_by) to the named table.
-      # ===== Examples
-      #  add_authors(:suppliers)
-      def add_authors(table_name, type=:string)
-        add_column table_name, :created_by, type
-        add_column table_name, :updated_by, type
-      end
-
-      # Removes the author columns (created_by and updated_by) from the table definition.
-      # ===== Examples
-      #  remove_authors(:suppliers)
-      def remove_authors(table_name)
-        remove_column table_name, :updated_by
-        remove_column table_name, :created_by
-      end
-    end
-
   end
 
-  # = Active Record Author
-  #
-  # Active Record automatically authors create and update operations if the
-  # table has fields named <tt>created_by</tt> or
-  # <tt>updated_by</tt>.
-  #
-  # Authoring can be turned off by setting:
-  #
-  #   <tt>ActiveRecord::Base.record_authors = false</tt>
-  module Author
-    extend ActiveSupport::Concern
-
-    included do
-      class_inheritable_accessor :record_authors, :instance_writer => false
-      self.record_authors = true
-    end
-
-  private
-
-    def create #:nodoc:
-      if record_authors
-        current_author = Concern::Audit::Author.current
-
-        all_author_attributes.each do |column|
-          write_attribute(column.to_s, current_author) if respond_to?(column) && self.send(column).nil?
-        end
-      end
-
-      super
-    end
-
-    def update(*args) #:nodoc:
-      if should_record_authors?
-        current_author = Concern::Audit::Author.current
-
-        author_attributes_for_update_in_model.each do |column|
-          column = column.to_s
-          next if attribute_changed?(column)
-          write_attribute(column, current_author)
-        end
-      end
-      super
-    end
-
-    def should_record_authors?
-      record_authors && (!partial_updates? || changed?)
-    end
-
-    def author_attributes_for_update_in_model
-      author_attributes_for_update.select { |c| respond_to?(c) }
-    end
-
-    def author_attributes_for_update #:nodoc:
-      [:updated_by]
-    end
-
-    def author_attributes_for_create #:nodoc:
-      [:created_by]
-    end
-
-    def all_author_attributes #:nodoc:
-      author_attributes_for_create + author_attributes_for_update
-    end
-
-  end
 
   Base.class_eval do
     include Author
   end
 
 end
+
 

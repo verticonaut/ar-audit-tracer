@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'test/unit'
 require 'fileutils'
-require "active_record"
+require 'active_record'
 require 'logger'
 
 # ------------------------------------------------------
