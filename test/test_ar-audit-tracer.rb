@@ -94,8 +94,8 @@ class TestArAuditTracer < Test::Unit::TestCase
   end
 
   def test_migration_add_authors
-    assert !BlankTwo.attribute_names.include?(:created_by)
-    assert !BlankTwo.attribute_names.include?(:updated_by)
+    assert !BlankTwo.new().attribute_names.include?(:created_by)
+    assert !BlankTwo.new().attribute_names.include?(:updated_by)
 
     AddAuthors.new().up
     BlankTwo.reset_column_information
@@ -105,8 +105,8 @@ class TestArAuditTracer < Test::Unit::TestCase
   end
 
   def test_migration_change_table_authors
-    assert !BlankOne.attribute_names.include?(:created_by)
-    assert !BlankOne.attribute_names.include?(:updated_by)
+    assert !BlankOne.new().attribute_names.include?(:created_by)
+    assert !BlankOne.new().attribute_names.include?(:updated_by)
 
     ChangeTableAuthors.new().up
     BlankOne.reset_column_information
