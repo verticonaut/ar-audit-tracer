@@ -28,10 +28,10 @@ This will add columns +created_by+ and +updated_by+ of type +:string+ to your mo
 In case you want to use another type, simply pass the type as argument, e.g.
   t.authors(:integer)
 
-By default the columns are mandatory (:null => true). If you have existing models you want to change
+By default the columns are mandatory (<tt>:null => false</tt>). If you have existing models you want to change
 you have to pass the option <tt>:null => true</tt>, update the values in the new attributes columns and add another
 migration to change the column to <tt>:null => false</tt> if required.
-Note: If you pass options you have to pass the type as well - sample migration statments:
+*Note:* If you pass options you have to pass the type as well - sample migration statments:
     add_authors(:your_table_name, :string, :null => true)
 or
     change_table :your_table_name do |t|
