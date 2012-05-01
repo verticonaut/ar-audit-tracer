@@ -13,4 +13,12 @@ ActiveRecord::Schema.define(:version => 0) do
     t.authors(:integer)
   end
   
+  create_table :blank_ones, :force => true do |t|
+    t.string :name
+  end
+
+  create_table :blank_twos, :force => true do |t|
+    t.string :name
+  end
+
 end

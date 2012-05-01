@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    ar-audit-tracer (1.0.2)
+      activerecord (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -24,6 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 3.2.0)
+  activerecord (~> 3.0)
+  ar-audit-tracer!
   rake
   sqlite3

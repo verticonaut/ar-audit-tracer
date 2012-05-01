@@ -1,5 +1,8 @@
 require 'helper'
 
+require 'resources/migrations/add_authors'
+require 'resources/migrations/change_table_authors'
+
 class TestArAuditTracer < Test::Unit::TestCase
 
   def setup
@@ -89,5 +92,28 @@ class TestArAuditTracer < Test::Unit::TestCase
     audited_record.save # save is not executed - there is nothing changed
     assert_equal audited_record.updated_by, 1
   end
+
+  def test_migration_add_authors
+    assert !BlankTwo.attribute_names.include?(:created_by)
+    assert !BlankTwo.attribute_names.include?(:updated_by)
+
+    AddAuthors.new().up
+    BlankTwo.reset_column_information
+
+    assert_equal :string, BlankTwo.columns_hash['created_by'].type
+    assert_equal :string, BlankTwo.columns_hash['updated_by'].type
+  end
+
+  def test_migration_change_table_authors
+    assert !BlankOne.attribute_names.include?(:created_by)
+    assert !BlankOne.attribute_names.include?(:updated_by)
+
+    ChangeTableAuthors.new().up
+    BlankOne.reset_column_information
+
+    assert_equal :integer, BlankOne.columns_hash['created_by'].type
+    assert_equal :integer, BlankOne.columns_hash['updated_by'].type
+  end
+
 
 end

@@ -26,7 +26,7 @@ rescue LoadError
 end
 
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 require "ar-audit-tracer/version"
 Rake::RDocTask.new do |rdoc|
   version = ArAuditTracer::VERSION

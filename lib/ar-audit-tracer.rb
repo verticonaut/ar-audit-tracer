@@ -98,9 +98,10 @@ module ActiveRecord
       # Adds author columns (created_by and updated_by) to the named table.
       # ===== Examples
       #  add_authors(:suppliers)
-      def add_authors(table_name, type=:string)
-        add_column table_name, :created_by, type, :null => false
-        add_column table_name, :updated_by, type, :null => false
+      def add_authors(table_name, type=:string, *args)
+        options = {:null => false}.merge(args.extract_options!)
+        add_column table_name, :created_by, type, options
+        add_column table_name, :updated_by, type, options
       end
 
       # Removes the author columns (created_by and updated_by) from the table definition.
@@ -134,8 +135,9 @@ module ActiveRecord
       #
       # @param Symbol type  The desired type for the columns, defaults to :string
       # @see SchemaStatements#add_authors
-      def authors(type=:string)
-        @base.add_authors(@table_name, type)
+      def authors(type=:string, *args)
+        options = {:null => false}.merge(args.extract_options!)
+        @base.add_authors(@table_name, type, options)
       end
 
       # Removes the author columns (created_by and updated_by) from the table.

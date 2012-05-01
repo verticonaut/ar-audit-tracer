@@ -7,7 +7,7 @@ class Concern::Audit::AuthorTest < Test::Unit::TestCase
   def setup
     Concern::Audit::Author.current = nil
   end
-  
+
   def test_author_setting_in_single_thread
     Concern::Audit::Author.current
 
@@ -16,7 +16,7 @@ class Concern::Audit::AuthorTest < Test::Unit::TestCase
 
     assert_equal("the_author", Concern::Audit::Author.current)
   end
-  
+
   def test_author_setting_in_different_threads
     Concern::Audit::Author.current="outer_thread"
 

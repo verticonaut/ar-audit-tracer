@@ -7,3 +7,9 @@ end
 class WithIntegerAuthor <  ActiveRecord::Base
 end
 
+class BlankOne <  ActiveRecord::Base
+end
+
+class BlankTwo <  ActiveRecord::Base
+end
+
