@@ -97,7 +97,7 @@ class TestArAuditTracer < Test::Unit::TestCase
     assert !BlankTwo.new().attribute_names.include?(:created_by)
     assert !BlankTwo.new().attribute_names.include?(:updated_by)
 
-    AddAuthors.new().up
+    AddAuthors.up
     BlankTwo.reset_column_information
 
     assert_equal :string, BlankTwo.columns_hash['created_by'].type
@@ -108,7 +108,7 @@ class TestArAuditTracer < Test::Unit::TestCase
     assert !BlankOne.new().attribute_names.include?(:created_by)
     assert !BlankOne.new().attribute_names.include?(:updated_by)
 
-    ChangeTableAuthors.new().up
+    ChangeTableAuthors.up
     BlankOne.reset_column_information
 
     assert_equal :integer, BlankOne.columns_hash['created_by'].type

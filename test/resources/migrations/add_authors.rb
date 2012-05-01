@@ -1,6 +1,6 @@
 class AddAuthors < ActiveRecord::Migration
 
-  def up
+  def self.up
     add_authors(:blank_twos, :string, :null => true)
   end
 
