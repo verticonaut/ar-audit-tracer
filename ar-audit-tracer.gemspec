@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.summary     = %q{Track creator/modifiers of you AR Models similar to timestamps.}
   s.description = %q{Handles ActiveRecord authors in the same way as timstamps.}
 
-  s.add_dependency              "activerecord", "~> 3.0"
+  s.add_dependency              "activerecord", "~> 4.0"
 
-  s.add_development_dependency  "activerecord", "~> 3.0"
+  s.add_development_dependency  "activerecord", "~> 4.0"
   s.add_development_dependency  "sqlite3"
 
   s.rdoc_options  << '--charset' << 'UTF-8' << '--line-numbers'
