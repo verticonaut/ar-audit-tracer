@@ -6,7 +6,7 @@ require 'resources/migrations/change_table_authors'
 class TestArAuditTracer < Test::Unit::TestCase
 
   def setup
-    Concern::Audit::Author.current=nil  
+    Concern::Audit::Author.current=nil
   end
 
   def test_author_attributes_available
@@ -33,7 +33,7 @@ class TestArAuditTracer < Test::Unit::TestCase
     # test :string coded authors
     Concern::Audit::Author.current="creator"
     audited_record = WithStringAuthor.create!
-    
+
     assert_equal audited_record.created_by, "creator"
     assert_equal audited_record.updated_by, "creator"
 

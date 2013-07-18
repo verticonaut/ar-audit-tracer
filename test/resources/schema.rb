@@ -5,14 +5,14 @@ ActiveRecord::Schema.define(:version => 0) do
 
   create_table :with_string_authors, :force => true do |t|
     t.string :name
-    t.authors
+    t.authorstamps
   end
 
   create_table :with_integer_authors, :force => true do |t|
     t.string :name
-    t.authors(:integer)
+    t.authorstamps(:integer)
   end
-  
+
   create_table :blank_ones, :force => true do |t|
     t.string :name
   end
