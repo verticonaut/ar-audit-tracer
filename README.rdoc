@@ -7,7 +7,12 @@
 <i>ar-audit-tracer</i> patches ActiveRecord so modifiers of a record can be traked on saving (insert/update).
 It works exactly like 'timestamps' (see usage below).
 
-The new version 1.0.2 works now for Rails 3.0, 3.1 and 3.2 and is tested with Ruby 1.8.7, 1.9.2 and 1.9.3.
+The new version 2.0.0 works now for Rails 4.0 with RUby 2.0 - or 1.9.3. Use the version 1.0.2 for Rails  ~3.0 with Ruby 1.8.7 or higher.
+
+**Note**
+The migration helpers changed. The column statement is now named +t.authorstamps+ instead of +t.authors+.
+Similar the changing a table is named +add_authorstamp+. The columns generated are still named the same - so they are calles
++created_by+ and +updated_by+.
 
 
 == Installation
@@ -21,26 +26,27 @@ Add below to your Gemfile and run the +bundle+ command
 === Migration
 
 In a models migration add:
-  t.authors
+  t.authorstamps
 
 This will add columns +created_by+ and +updated_by+ of type +:string+ to your model.
 
 In case you want to use another type, simply pass the type as argument, e.g.
-  t.authors(:integer)
+  t.authorstamps(:integer)
 
 By default the columns are mandatory (<tt>:null => false</tt>). If you have existing models you want to change
 you have to pass the option <tt>:null => true</tt>, update the values in the new attributes columns and add another
 migration to change the column to <tt>:null => false</tt> if required.
 *Note:* If you pass options you have to pass the type as well - sample migration statments:
-    add_authors(:your_table_name, :string, :null => true)
+    add_authorstamps(:your_table_name, :string, :null => true)
 or
     change_table :your_table_name do |t|
-      t.authors(:integer, :null => true)
+      t.authorstamps(:integer, :null => true)
     end
 
 ==== Note
-The _authors_ methods are simple conveniance methods (as regular timestamp methods are). You can simply
-add columns named +created_by+ and +updated_by+ using regular migration statements.
+The _authorstamps_ methods are simple conveniance methods (as regular timestamp methods are). You can simply
+add columns named +created_by+ and +updated_by+ using regular migration statements.<br/>
+**Note** You can name the attributes +created_by_id+ and +updated_by_id+. If these columns are detected they are filled as well.
 
 === Configuration
 
@@ -57,6 +63,10 @@ In case you need associations to a respective Author Model you have to set them 
 
 
 == Changelog
+
+=== Version 2.0.0
+* Works for Rails4 with Ruby1.9.3 and Ruby 2.0.0
+* Works now not only for +created_by+ and +updated_by+, but as well for attributes +created_by_id+ and +updated_by_id+
 
 === Version 1.0.2
 * Fixed migrations so option can be passed
