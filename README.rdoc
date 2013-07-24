@@ -55,7 +55,7 @@ You can name the attributes +created_by_id+ and +updated_by_id+. If these column
 All you need to do is to set the current author such as e.g:
   Concern::Audit::Author.current="bad_man"
 
-Each ActiveRecord +save+ or +update+ then will set the respetive attributes +created_by+ and +modified_by+ automatically, whereas the modifier is set to the same value as the creator on model creation.
+Each ActiveRecord +save+ or +update+ then will set the respetive attributes +created_by+ and +updated_by+ automatically, whereas the modifier is set to the same value as the creator on model creation.
 
 In a Rails Application you would set the author as described above in a +before_filter+.
 <tt>Concern::Audit::Author</tt> stores the author in a Thread-Local variable.
