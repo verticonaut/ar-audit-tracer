@@ -1,9 +1,0 @@
-source 'http://rubygems.org'
-
-gem 'activerecord', '~> 3.1.0'
-
-group :test do
-	gem 'rake'
-	gem 'rdoc'
-	gem 'sqlite3'
-end
