@@ -7,9 +7,9 @@
 <i>ar-audit-tracer</i> patches ActiveRecord so modifiers of a record can be traked on saving (insert/update).
 It works exactly like 'timestamps' (see usage below).
 
-The new version 2.0.0 works now for Rails 4.0 with RUby 2.0 - or 1.9.3. Use the version 1.0.2 for Rails  ~3.0 with Ruby 1.8.7 or higher.
+The new version 2.0.0 works now for Rails 4.0 with Ruby 1.9.3 and 2.0.0. Use the version 1.0.2 for Rails  ~3.0 with Ruby 1.8.7 or higher.
 
-**Note**
+**Note**<br/>
 The migration helpers changed. The column statement is now named +t.authorstamps+ instead of +t.authors+.
 Similar the changing a table is named +add_authorstamp+. The columns generated are still named the same - so they are calles
 +created_by+ and +updated_by+.
