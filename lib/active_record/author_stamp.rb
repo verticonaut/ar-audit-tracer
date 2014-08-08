@@ -27,7 +27,7 @@ module ActiveRecord
 
   private
 
-    def create_record
+    def _create_record
       if self.record_authorstamps
         all_authorstamp_attributes.each do |column|
           if respond_to?(column) && respond_to?("#{column}=") && self.send(column).nil?
@@ -39,7 +39,7 @@ module ActiveRecord
       super
     end
 
-    def update_record(*args)
+    def _update_record(*args)
       if should_record_authorstamps?
         authorstamp_attributes_for_update_in_model.each do |column|
           column = column.to_s
