@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency              "activerecord", "~> 4.0"
 
-  s.add_development_dependency  "activerecord", "~> 4.0"
   s.add_development_dependency  "sqlite3"
 
   s.rdoc_options  << '--charset' << 'UTF-8' << '--line-numbers'
